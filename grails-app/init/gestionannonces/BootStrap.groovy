@@ -5,7 +5,7 @@ class BootStrap {
     def init = { servletContext ->
         def userInstance = new User(username: "username" ,
                 "password":"password" ,
-                thumbnail: new Illustration(filename: "apple-touch-icon.png"))
+                thumbnail: new Illustration(filename: "/assets/apple-touch-icon.png"))
 
         (1..5).each {
             userInstance.addToAnnonces(

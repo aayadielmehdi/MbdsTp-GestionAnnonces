@@ -34,19 +34,26 @@
         </tr>
         </thead>
         <tbody>
-            <g:each in="${userList}" var="instance">
-                <tr>
-                    <td><g:link controller="user" action="show" id="${instance.id}"> ${instance.username} </g:link></td>
-                    <td><asset:image src="${instance.thumbnail.filename}"/></td>
-                    <td>
-                        <ul>
-                            <g:each in="${instance.annonces}" var="ann">
-                                <li><g:link controller="annonce" action="show" id="${ann.id}">${ann.title}</g:link></li>
-                            </g:each>
-                        </ul>
-                    </td>
-                </tr>
-            </g:each>
+        <g:each in="${userList}" var="instance" status="i">
+
+%{--            condition pour definir la class--}%
+
+            <tr class="${ (i%2) == 0 ? 'even' : 'odd' }">
+                <td><g:link controller="user" action="show" id="${instance.id}"> ${instance.username} </g:link></td>
+                <td>
+                    <g:link controller="illustration" action="show" id="${instance.thumbnail.id}">
+                        <img src="${instance.thumbnail.filename}"/>
+                    </g:link>
+                </td>
+                <td>
+                    <ul>
+                        <g:each in="${instance.annonces}" var="ann">
+                            <li><g:link controller="annonce" action="show" id="${ann.id}">${ann.title}</g:link></li>
+                        </g:each>
+                    </ul>
+                </td>
+            </tr>
+        </g:each>
         </tbody>
     </table>
 
