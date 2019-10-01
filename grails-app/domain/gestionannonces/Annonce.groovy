@@ -4,9 +4,9 @@ class Annonce {
 
     String title
     String description
-    Date  datecreation
-    Date validite
-    Boolean State = Boolean.false
+    Date  dateCreated
+    Date validTill
+    Boolean state   = Boolean.FALSE
 
     static belongsTo = [author:User]
 
@@ -15,7 +15,12 @@ class Annonce {
     static constraints = {
         title blank: false,nullable: false
         description blank: false,nullable: false
-        validite nullable: false
-        illustrations nullable: false
+        validTill nullable: false
+        illustrations nullable: true
+    }
+
+    @Override
+    String toString() {
+        return title
     }
 }
