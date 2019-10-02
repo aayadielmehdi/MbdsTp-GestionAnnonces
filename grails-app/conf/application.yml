@@ -144,6 +144,6 @@ server:
 
 # ma propre configuration pour y mettre les images et les bien traités.
 
-#mehdi:
-#  path: "/var/www/ProjetGestAnnonces"
-#  assets-url: "http://localhost:8080/projet/"
+maConfig:
+  assets_url: "/home/mbds/IdeaProjects/GestionAnnonces/grails-app/assets/images/"
+  assets_http: "http://localhost:8080/assets/"

@@ -57,15 +57,16 @@
                             <tr>
                             <td>
                             <g:link controller="illustration" action="show"  id="${ill.id}">
-                                <img src="${ill.filename}">
+                                <g:img width="100" file="${ill.filename}" />
                             </g:link>
                             </td>
                         </g:if>
 
+
                         <g:else>
                             <td>
                                 <g:link controller="illustration" action="show"  id="${ill.id}">
-                                    <img src="${ill.filename}">
+                                    <g:img width="100" file="${ill.filename}" />
                                 </g:link>
                             </td>
                             </tr>

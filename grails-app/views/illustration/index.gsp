@@ -36,7 +36,7 @@
             <tr class="${ (i%2) == 0 ? 'even' : 'odd' }">
                 <td>
                     <g:link controller="illustration" action="show"  id="${illustration.id}">
-                        <img src="${illustration.filename}">
+                        <g:img width="50" file="${illustration.filename}"/>
                     </g:link>
                 </td>
             </>

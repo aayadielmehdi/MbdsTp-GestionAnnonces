@@ -48,9 +48,13 @@
                 <td>${annonce.description}</td>
                 <td><g:formatDate date="${annonce.validTill}" type="datetime" style="medium" /></td>
                 <td>
-                    <ul>
-                        ${annonce.countIllustrationOfAnnonce(annonce.id)[0]}
-                    </ul>
+
+                    <g:each in="${annonce.illustrations}" var="ill">
+                        <g:link controller="illustration" action="show" id="${ill.id}">
+                            <g:img width="50" file="${ill.filename}"/> <br>
+                        </g:link>
+                    </g:each>
+
                 </td>
                 <td>
                     <g:if test="${annonce.state == true}">
