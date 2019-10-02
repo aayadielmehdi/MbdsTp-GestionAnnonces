@@ -142,7 +142,9 @@ environments:
 server:
   port: 8080
 
+
 # ma propre configuration pour y mettre les images et les bien traités.
+
 
 maConfig:
   assets_url: "/home/mbds/IdeaProjects/GestionAnnonces/grails-app/assets/images/"

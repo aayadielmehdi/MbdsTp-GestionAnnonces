@@ -42,6 +42,7 @@ class UserController {
                 Random rand = new Random(System.currentTimeMillis())
                 def randomTab = (0..10).collect { pool[rand.nextInt(pool.size())] }
 
+
                 def randomString =""
                 for (item in randomTab) {
                     randomString = randomString + item
