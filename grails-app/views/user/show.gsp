@@ -25,7 +25,7 @@
     <ol class="property-list user">
 
         <li class="fieldcontain">
-            <span id="username-label" class="property-label">Username</span>
+            <span id="username-label" class="property-label">Nom d'utilisateur</span>
             <div class="property-value" aria-labelledby="username-label">${user.username}</div>
         </li>
 
@@ -33,7 +33,7 @@
             <span id="thumbnail-label" class="property-label">Thumbnail</span>
             <div class="property-value" aria-labelledby="thumbnail-label">
                 <g:link controller="illustration" action="show" id="${user.thumbnail.id}">
-                    <img src="${user.thumbnail.filename}"/>
+                    <g:img width="100" file="${user.thumbnail.filename}"/>
                 </g:link>
             </div>
         </li>

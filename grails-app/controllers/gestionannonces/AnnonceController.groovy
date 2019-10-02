@@ -11,7 +11,7 @@ class AnnonceController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond annonceService.list(params), model:[annonceCount: annonceService.count()]
+        respond annonceService.list(params), model: [annonceCount: annonceService.count()]
     }
 
     def show(Long id) {
@@ -31,7 +31,7 @@ class AnnonceController {
         try {
             annonceService.save(annonce)
         } catch (ValidationException e) {
-            respond annonce.errors, view:'create'
+            respond annonce.errors, view: 'create'
             return
         }
 
@@ -57,7 +57,7 @@ class AnnonceController {
         try {
             annonceService.save(annonce)
         } catch (ValidationException e) {
-            respond annonce.errors, view:'edit'
+            respond annonce.errors, view: 'edit'
             return
         }
 
@@ -66,7 +66,7 @@ class AnnonceController {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'annonce.label', default: 'Annonce'), annonce.id])
                 redirect annonce
             }
-            '*'{ respond annonce, [status: OK] }
+            '*' { respond annonce, [status: OK] }
         }
     }
 
@@ -81,9 +81,9 @@ class AnnonceController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'annonce.label', default: 'Annonce'), id])
-                redirect action:"index", method:"GET"
+                redirect action: "index", method: "GET"
             }
-            '*'{ render status: NO_CONTENT }
+            '*' { render status: NO_CONTENT }
         }
     }
 
@@ -93,7 +93,8 @@ class AnnonceController {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'annonce.label', default: 'Annonce'), params.id])
                 redirect action: "index", method: "GET"
             }
-            '*'{ render status: NOT_FOUND }
+            '*' { render status: NOT_FOUND }
         }
     }
+
 }

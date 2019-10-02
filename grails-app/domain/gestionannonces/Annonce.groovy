@@ -24,15 +24,4 @@ class Annonce {
         return title
     }
 
-    /*
-    Calcul le nombre d'illustration en une annonce
-
-
-
-     */
-    def countIllustrationOfAnnonce(Long _id){
-        def result = Annonce.executeQuery("select count(*) from Annonce a join a.illustrations ill  " +
-                "where a.id =:id" , [id:_id] )
-        return result
-    }
 }

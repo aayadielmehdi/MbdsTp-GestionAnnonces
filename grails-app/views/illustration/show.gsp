@@ -21,7 +21,19 @@
             </g:if>
 
 
-            <f:display bean="illustration" />
+%{--            <f:display bean="illustration" />--}%
+
+            <ol class="property-list illustration">
+
+                <li class="fieldcontain">
+                    <span id="filename-label" class="property-label">Filename</span>
+                    <div class="property-value" aria-labelledby="filename-label">
+                        ${illustration.filename}
+                        <br>
+                        <g:img file="${illustration.filename}"/>
+                    </div>
+                </li>
+            </ol>
 
 
 

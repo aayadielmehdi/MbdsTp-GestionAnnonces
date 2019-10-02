@@ -1,6 +1,8 @@
 package gestionannonces
 
 import grails.validation.ValidationException
+import org.springframework.web.multipart.MultipartHttpServletRequest
+
 import static org.springframework.http.HttpStatus.*
 
 class UserController {
@@ -18,6 +20,7 @@ class UserController {
         respond userService.get(id)
     }
 
+
     def create() {
         respond new User(params)
     }
@@ -29,7 +32,38 @@ class UserController {
         }
 
         try {
+            def x = request.getFile('fileUpload')  // fichier inserer pour l'utilisateur
+            if (x == null || x.empty){
+                flash.message = "Veuilllllez saisir un fichier"
+                return
+            }else{
+
+                def pool = ['a'..'z','A'..'Z',0..9,'_'].flatten()
+                Random rand = new Random(System.currentTimeMillis())
+                def randomTab = (0..10).collect { pool[rand.nextInt(pool.size())] }
+
+
+                def randomString =""
+                for (item in randomTab) {
+                    randomString = randomString + item
+                }
+
+                randomString =  randomString + ".png"
+
+                def File = new File (grailsApplication.config.maConfig.assets_url + randomString) // file de copy
+
+                if (File.exists()){
+                    flash.message = "Fichier déjà existant"
+                    return
+                }else{
+                    x.transferTo(File)
+                    user.thumbnail = new Illustration(filename: randomString)
+                }
+            }
+
             userService.save(user)
+
+
         } catch (ValidationException e) {
             respond user.errors, view:'create'
             return
@@ -96,4 +130,5 @@ class UserController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
 }
