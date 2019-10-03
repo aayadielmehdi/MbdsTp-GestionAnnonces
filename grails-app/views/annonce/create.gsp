@@ -25,10 +25,29 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.annonce}" method="POST">
-                <fieldset class="form">
-                    <f:all bean="annonce"/>
-                </fieldset>
+            <g:form resource="${this.annonce}" method="POST" enctype="multipart/form-data">
+
+%{--                <fieldset class="form">--}%
+%{--                    <f:all bean="annonce"/>--}%
+%{--                </fieldset>--}%
+
+
+                <f:field bean="annonce" property="title"/>
+                <f:field bean="annonce" property="description"/>
+                <f:field bean="annonce" property="validTill"/>
+                <f:field bean="annonce" property="author">
+                    <select name="author"  id="author">
+                        <g:each in="${gestionannonces.User.all}" var="user">
+                            <option value="${user.id}">${user.username}</option>
+                        </g:each>
+                    </select>
+                </f:field>
+                <f:field bean="annonce" property="illustrations">
+                    <input multiple="multiple" type="file" name="illus" accept="image/png" />
+                </f:field>
+
+                <br>
+
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>

@@ -32,7 +32,7 @@
     </g:hasErrors>
 
     <form action="save" method="POST" enctype='multipart/form-data' >
-
+        <input type="hidden" name="methode" value="creation"/>
         <fieldset class="form">
             <div class='fieldcontain required'>
                 <label for='username'>Username
@@ -54,7 +54,7 @@
                 <label for='thumbnail'>Thumbnail
                     <span class='required-indicator'>*</span>
                 </label>
-                <input type="file" name="fileUpload" id="thumbnail" required="" accept="image/png" />
+                <input type="file" name="fileUpload" id="thumbnail" accept="image/png" />
             </div>
         </fieldset>
 
