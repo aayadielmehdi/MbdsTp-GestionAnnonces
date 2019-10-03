@@ -149,3 +149,4 @@ server:
 maConfig:
   assets_url: "/home/mbds/IdeaProjects/GestionAnnonces/grails-app/assets/images/"
   assets_http: "http://localhost:8080/assets/"
+  avatar_default: "avatar.png"

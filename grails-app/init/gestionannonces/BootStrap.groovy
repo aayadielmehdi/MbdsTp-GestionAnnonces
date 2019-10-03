@@ -13,9 +13,8 @@ class BootStrap {
                             description: "Description",
                             validTill: new Date(),
                             state: Boolean.TRUE)
-                            .addToIllustrations(new Illustration(filename: "F1"))
-                            .addToIllustrations(new Illustration(filename: "F2"))
-                            .addToIllustrations(new Illustration(filename: "F3"))
+                            .addToIllustrations(new Illustration(filename: "avatar.png"))
+                            .addToIllustrations(new Illustration(filename: "apple-touch-icon.png"))
             )
         }
         userInstance.save(flush:true,failOnError:true)

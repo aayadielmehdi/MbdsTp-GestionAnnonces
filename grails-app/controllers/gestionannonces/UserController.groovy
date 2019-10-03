@@ -32,16 +32,22 @@ class UserController {
         }
 
         try {
-            def x = request.getFile('fileUpload')  // fichier inserer pour l'utilisateur
+
+//            definir la méthode si c'est creation ou edition
+            def methode = params.methode
+
+            def x = request.getFile('fileUpload')  // x est le fichier inserer en upload
+
             if (x == null || x.empty){
-                flash.message = "Veuilllllez saisir un fichier"
-                return
+                if (methode == "creation"){
+                    // ajout d'une image par defaut en cas de non saisie d'image à l'ajout au modification pas de blem
+                    user.thumbnail = new Illustration(filename: grailsApplication.config.maConfig.avatar_default)
+                }
             }else{
 
                 def pool = ['a'..'z','A'..'Z',0..9,'_'].flatten()
                 Random rand = new Random(System.currentTimeMillis())
                 def randomTab = (0..10).collect { pool[rand.nextInt(pool.size())] }
-
 
                 def randomString =""
                 for (item in randomTab) {
@@ -57,7 +63,7 @@ class UserController {
                     return
                 }else{
                     x.transferTo(File)
-                    user.thumbnail = new Illustration(filename: randomString)
+                    user.thumbnail = new Illustration(filename: randomString)  // si c'est de nombreux avatar faux faire user.addtouser
                 }
             }
 
