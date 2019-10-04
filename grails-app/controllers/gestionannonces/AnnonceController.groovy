@@ -141,7 +141,17 @@ class AnnonceController {
             def illustrationInstance = Illustration.get(params.illustration_id)
             annonceInstance.removeFromIllustrations(illustrationInstance)
             annonceInstance.save(flush : true)   // flush car on est pas en service
+
             // effacer le fichier physique
+
+            // efface l'element physique
+
+            def file = new File(grailsApplication.config.maConfig.assets_url + illustrationInstance.filename)
+
+            if (file.exists()){
+                file.delete()
+            }
+
             illustrationInstance.delete(flush: true)
 
             redirect(controller: "annonce", action: "edit", id: annonceInstance.id)

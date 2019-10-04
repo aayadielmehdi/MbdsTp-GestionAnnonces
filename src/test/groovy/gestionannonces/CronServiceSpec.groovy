@@ -1,9 +1,9 @@
 package gestionannonces
 
-import grails.testing.web.controllers.ControllerUnitTest
+import grails.testing.services.ServiceUnitTest
 import spock.lang.Specification
 
-class TestControllerSpec extends Specification implements ControllerUnitTest<TestController> {
+class CronServiceSpec extends Specification implements ServiceUnitTest<CronService>{
 
     def setup() {
     }

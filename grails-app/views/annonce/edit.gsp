@@ -36,7 +36,8 @@
         <f:field bean="annonce" property="title"/>
         <f:field bean="annonce" property="description"/>
         <f:field bean="annonce" property="validTill"/>
-        <f:field property="state" bean="annonce"/>
+%{--        <f:field property="state" bean="annonce"/>--}%
+
 %{--        <f:field bean="annonce" property="author">--}%
 %{--            <select name="author"  id="author">--}%
 %{--                <g:each in="${gestionannonces.User.all}" var="user">--}%

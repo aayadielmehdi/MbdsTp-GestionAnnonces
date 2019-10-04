@@ -20,6 +20,7 @@ class BootStrap {
         userInstance.save(flush:true,failOnError:true)
         // tous crach on cas d'erreur
         // flush on utilise quand on a besoin (exemple d'utilisation id utilisateur)
+
     }
 
     def destroy = {
