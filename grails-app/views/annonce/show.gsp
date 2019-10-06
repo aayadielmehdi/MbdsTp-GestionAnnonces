@@ -84,7 +84,7 @@
                     Validée
                 </g:if>
                 <g:else>
-                    En Attente de validation
+                    Non Validée
                 </g:else>
             </div>
         </li>

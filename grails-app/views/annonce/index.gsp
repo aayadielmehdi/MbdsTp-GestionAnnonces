@@ -61,7 +61,7 @@
                         Validée
                     </g:if>
                     <g:else>
-                        En Attente de validation
+                        Non validée
                     </g:else>
                 </td>
                 <td>

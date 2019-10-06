@@ -33,7 +33,10 @@ configurations {
 }
 
 dependencies {
+
     developmentOnly("org.springframework.boot:spring-boot-devtools")
+
+
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"
@@ -71,6 +74,14 @@ dependencies {
     testCompile "org.seleniumhq.selenium:selenium-support:3.14.0"
     testRuntime "org.seleniumhq.selenium:selenium-chrome-driver:3.14.0"
     testRuntime "org.seleniumhq.selenium:selenium-firefox-driver:3.14.0"
+
+//    compile "org.grails.plugins:quartz:2.0.14.BUILD-SNAPSHOT"
+//    compile "org.grails.plugins:quartz-config-scheduler:2.0.0"
+
+    compile 'org.grails.plugins:quartz:2.0.13'
+    compile("org.quartz-scheduler:quartz:2.2.3") {
+        exclude group: 'slf4j-api', module: 'c3p0'
+    }
 
 }
 

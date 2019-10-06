@@ -140,7 +140,7 @@ environments:
         defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
 
 server:
-  port: 8080
+  port: 8091
 
 
 # ma propre configuration pour y mettre les images et les bien traités.
