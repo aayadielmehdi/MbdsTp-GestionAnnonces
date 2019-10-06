@@ -4,8 +4,6 @@ class CronUpdateAnnonceJob {
 
     AnnonceService annonceService
 
-
-
     static triggers = {
         simple repeatInterval: 5000l // execute job once in 5 seconds
     }
@@ -26,6 +24,7 @@ class CronUpdateAnnonceJob {
 
 //        def an = Annonce.findAllByState(Boolean.TRUE)
 //        an.each {
+//        faut bien connaitre comment a fait
 //            Annonce annonce ->
 //            if(annonce.validTill.before(new Date())){
 //                println("l'annonce "+ annonce.id + " est desactivé mnt")
